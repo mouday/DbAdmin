@@ -1,0 +1,4 @@
+flask
+pickledb
+sqlalchemy
+tinydb

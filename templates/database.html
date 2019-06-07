@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+
+{%block title%}
+Database
+{%endblock%}
+
+{%block body%}
+{% include "path.html" %}
+
+<form class="form-inline" action="/addDatabase" method="POST">
+  <div class="form-group">
+
+    <input type="text" class="form-control" name="database_name" placeholder="database_name">
+    <input type="text" class="form-control" name="database_url" placeholder="database_url" style="width: 400px">
+
+  </div>
+
+  <button type="submit" class="btn btn-default">添加</button>
+</form>
+
+<hr>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>序号</th>
+        {%for key in keys %}
+        <th>{{key}}</th>
+        {%endfor%}
+        <th>从列表移除</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {%for item in items %}
+    <tr>
+        <td>{{loop.index}}</td>
+        {%for key in keys %}
+        <td>{{item[key]}}</td>
+        {%endfor%}
+        <td><a href="/deleteDatabase?database_name={{item.database_name}}" class="btn btn-default">移除</a></td>
+    </tr>
+
+    {%endfor%}
+    </tbody>
+</table>
+{%endblock%}

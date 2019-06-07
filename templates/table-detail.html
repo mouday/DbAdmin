@@ -1,0 +1,49 @@
+{%extends "base.html"%}
+
+{%block title%}
+Table
+{%endblock%}
+
+{%block body%}
+
+{% include "path.html" %}
+
+<table class="table table-bordered table-hover">
+    <tbody>
+    <tr class="active">
+        {%for key in keys %}
+        <th>{{key}}</th>
+        {%endfor%}
+    </tr>
+
+
+    {%for item in items %}
+    <tr>
+        {%for key in keys %}
+        <td>{{item[key]}}</td>
+        {%endfor%}
+    </tr>
+    {%endfor%}
+    </tbody>
+
+</table>
+
+<div style="margin: 0 auto">
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="/table-detail?database_name={{database_name}}&table={{table}}&page=1" aria-label="Previous">
+        <span aria-hidden="true">首页</span>
+      </a>
+    </li>
+      <li><a href="/table-detail?database_name={{database_name}}&table={{table}}&page={{previous_page}}">上一页</a></li>
+      <li><a href="/table-detail?database_name={{database_name}}&table={{table}}&page={{next_page}}">下一页</a></li>
+    <li class="disabled">
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">尾页</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+{%endblock%}

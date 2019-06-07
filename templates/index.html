@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据中心</title>
+    <link rel="stylesheet" href="/static/bootstrap@3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="/static/js/jquery@3.4.1.min.js"></script>
+    <script src="/static/bootstrap@3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="container">
+    {% include "message.html" %}
+
+    <div id="header" style="color: #ffffff">
+        <span style="margin-left: 20px;">数据中心</span>
+        <span class="menu"><a href="/logout">退出登录</a></span>
+        <span class="username">{{ session.username }}</span>
+    </div>
+
+    <div id="mainContent">
+        <div id="sidebar">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">配置</div>
+                <div class="list-group">
+
+                    {# 权限校验，如果是 root 管理员则显示 #}
+                    {% if session.username == "root" %}
+                    <a class="list-group-item" href="/admin" target="iframe-main">用户配置</a>
+                    <a class="list-group-item" href="/table-detail?database_name=history" target="iframe-main">系统日志</a>
+                    {%endif%}
+
+                    <a class="list-group-item" href="/database" target="iframe-main">数据库配置</a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">数据库列表</div>
+
+                <div class="list-group">
+                    {%for item in items%}
+                    <a class="list-group-item" href="/table?database_name={{item.database_name}}" target="iframe-main">{{item.database_name}}</a>
+                    {%endfor%}
+
+
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <iframe src="/database" frameborder="0" name="iframe-main" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

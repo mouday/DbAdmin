@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+
+{%block title%}
+Table
+{%endblock%}
+
+{%block body%}
+
+{% include "path.html" %}
+
+<table class="table table-bordered table-hover">
+    <tbody>
+    <tr class="active">
+        <th>序号</th>
+        <th>查看数据</th>
+        {%for key in keys %}
+        <th>{{key}}</th>
+        {%endfor%}
+    </tr>
+
+    {%for item in items %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td><a href="/table-detail?database_name={{item.database_name}}&table={{item.Name}}" class="btn btn-default btn-sm">查看</a></td>
+        {%for key in keys %}
+        <td>{{item[key]}}</td>
+        {%endfor%}
+
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{%endblock%}

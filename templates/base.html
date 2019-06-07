@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="/static/bootstrap@3.3.7/css/bootstrap.min.css">
+    <script src="/static/js/jquery@3.4.1.min.js"></script>
+    <script src="/static/bootstrap@3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {margin:0}
+    /*表格不换行*/
+    th, td {
+        word-break: keep-all;
+        white-space: nowrap;
+        /*max-width: 300px;*/
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+<body>
+{% include "message.html" %}
+
+{%block body%} {%endblock%}
+</body>
+</html>

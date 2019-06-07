@@ -1,0 +1,60 @@
+body {
+    margin: 0
+}
+
+#container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#header {
+    height: 50px;
+    background: #409EFF;
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 5px;
+    line-height: 50px;;
+}
+
+#mainContent {
+    height: 500px;
+    margin-bottom: 5px;
+}
+
+#sidebar {
+    float: left;
+    width: 200px;
+    height: 500px;
+    color: #ffffff;
+}
+
+#content {
+    margin-left: 210px;
+    height: 500px;
+}
+
+#header a {
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+#header .username {
+    float: right;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#header a {
+    display: inline-block;
+    padding: 0 10px;
+    float: right;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+/*鼠标经过生效*/
+#header a:hover {
+    color: #ffffff;
+    background-color: #F56C6C;
+}
